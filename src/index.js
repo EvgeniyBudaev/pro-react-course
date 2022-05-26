@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App } from "./hookUseMemo/App";
+import { App } from "./memoAndPureComponent/App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
