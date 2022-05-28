@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { List } from "./List";
 import { payments } from "./mockData";
 
@@ -6,10 +6,10 @@ export const App = () => {
   const [count, setCount] = useState(0);
   const [isColor, setColor] = useState(false);
 
-  const handleItemClick = (item) => {
-    console.log("Clicked this item", item);
+  const handleItemClick = useCallback((item) => {
+    console.log("По этому элементу кликнули", item);
     setCount((prevState) => prevState + 1);
-  };
+  }, []);
 
   return (
     <div>

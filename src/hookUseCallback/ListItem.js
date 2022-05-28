@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "./ListItem.scss";
 
-export const ListItem = ({ item, onClick }) => {
+const ListItemComponent = ({ item, onClick }) => {
   console.log("ListItem render");
 
   const handleClick = () => onClick(item);
@@ -13,3 +13,5 @@ export const ListItem = ({ item, onClick }) => {
     >{`${item.name} - ${item.payment}rub`}</li>
   );
 };
+
+export const ListItem = memo(ListItemComponent);

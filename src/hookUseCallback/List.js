@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { ListItem } from "./ListItem";
 
-export const List = ({ list, onClick }) => {
+const ListComponent = ({ list, onClick }) => {
   console.log("List render");
 
   return (
@@ -13,3 +13,5 @@ export const List = ({ list, onClick }) => {
     </ul>
   );
 };
+
+export const List = memo(ListComponent);
