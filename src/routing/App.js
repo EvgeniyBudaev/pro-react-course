@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, Outlet, Routes, Route } from "react-router-dom";
+import { Link, NavLink, Outlet, Routes, Route } from "react-router-dom";
+import "./App.scss";
 
 export const App = () => {
   return (
     <>
-      <h1>Basic Example</h1>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -19,22 +19,35 @@ export const App = () => {
 };
 
 function Layout() {
+  const activeLinkClassName = "active-link";
+  const linkClassName = "default-link";
+
+  const setActiveLink = ({ isActive }) =>
+    isActive ? activeLinkClassName : linkClassName;
+
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
+      <nav className="navigation">
+        <ul className="navigation-list">
+          <li className="navigation-list__item">
+            <NavLink to="/" end className={setActiveLink}>
+              Home
+            </NavLink>
           </li>
-          <li>
-            <Link to="/about">About</Link>
+          <li className="navigation-list__item">
+            <NavLink to="/about" className={setActiveLink}>
+              About
+            </NavLink>
           </li>
-          <li>
-            <Link to="/users">Users</Link>
+          <li className="navigation-list__item">
+            <NavLink to="/users" className={setActiveLink}>
+              Users
+            </NavLink>
           </li>
         </ul>
       </nav>
-      <hr />
+      {/* An <Outlet> renders whatever child route is currently active. */}
+      {/* <Outlet> отображает любой активный дочерний маршрут. */}
       <Outlet />
     </div>
   );
