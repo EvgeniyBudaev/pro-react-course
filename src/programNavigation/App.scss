@@ -1,0 +1,33 @@
+.default-link {
+	text-decoration: none;
+}
+
+.active {
+	color: var(--color-active);
+	cursor: default;
+	text-decoration: none;
+}
+
+.active-link {
+	color: var(--color-active);
+	cursor: default;
+	text-decoration: none;
+}
+
+.navigation {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: var(--color-bg-navigation);
+	&-list {
+		display: flex;
+		justify-content: center;
+		&__item {
+			font-size: 20px;
+			font-weight: bold;
+			margin-right: 20px;
+		}
+		&__item:last-child {
+			margin-right: 0;
+		}
+	}
+}
